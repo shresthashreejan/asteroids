@@ -24,7 +24,7 @@ static float _lastAsteroidCreationTime = -1.0f;
 // DEBUG
 bool _showDebugMenu = false;
 bool _showAngleCone = false;
-bool _showAsteroidCount = true;
+bool _showAsteroidCount = false;
 Vector2 line0[2];
 Vector2 line1[2];
 
@@ -81,11 +81,11 @@ void UpdateDrawFrame(void) {
 		}
 
 		if(_showDebugMenu) {
-			Rectangle r = {10, screenHeight - 100, 180, 80};
+			Rectangle r = {10, screenHeight - 40, 140, 20};
 			if (GuiButton(r, "Toggle Asteroid Count")) {
 				_showAsteroidCount = !_showAsteroidCount;
 			}
-			r.x += 180 + 10;
+			r.x += 140 + 10;
 			if (GuiButton(r, "Toggle Angle Cone")) {
 				_showAngleCone = !_showAngleCone;
 			}
