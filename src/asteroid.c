@@ -1,5 +1,8 @@
-#include "asteroid.h"
 #include "raymath.h"
+
+#include "asteroid.h"
+#include "constants.h"
+#include "debug.h"
 
 Asteroid CreateAsteroid(Vector2 position, Vector2 velocity, AsteroidSize size) {
     return(Asteroid) {
@@ -32,4 +35,23 @@ void DrawAsteroid(Asteroid asteroid) {
         return;
     }
     DrawPolyLines(asteroid.position, 3, 16 * (int)(asteroid.size), asteroid.rotation, WHITE);
+}
+
+
+Vector2 GetNextAsteroidPosition(void) {
+	int padding = 128;
+	Vector2 result = {-padding, padding};
+
+	if(GetRandomValue(0, 1)) {
+		if(GetRandomValue(0, 1)){
+			result.y = SCREEN_HEIGHT + padding;
+		}
+		result.x = GetRandomValue(-padding, SCREEN_WIDTH + padding);
+	} else {
+		if(GetRandomValue(0, 1)){
+			result.x = SCREEN_WIDTH + padding;
+		}
+		result.y = GetRandomValue(-padding, SCREEN_HEIGHT + padding);
+	}
+	return result;
 }
