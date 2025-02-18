@@ -76,7 +76,7 @@ void UpdateDrawFrame(void) {
 					count++;
 				}
 			}
-			DrawRectangle(10, 10, 100, 52, Fade(BLACK, 0.6f));
+			DrawRectangle(10, 10, 100, 52, Fade(NEARBLACK, 0.6f));
 			DrawText(TextFormat("ASTEROIDS: %d", count), 20, 20, 32, WHITE);
 		}
 
