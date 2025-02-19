@@ -8,6 +8,7 @@
 #include "asteroid.h"
 #include "constants.h"
 #include "debug.h"
+#include "player.h"
 
 static Asteroid _asteroids[MAX_ASTEROIDS] = {0};
 
@@ -28,6 +29,7 @@ void UpdateDrawFrame(void) {
 	FrameUpdateAsteroid(_asteroids);
 	BeginDrawing();
 		ClearBackground(NEARBLACK);
+		PlayerController();
 		DebugController(_asteroids);
 		for(int i = 0; i < MAX_ASTEROIDS; i++) {
 			DrawAsteroid(_asteroids[i]);
