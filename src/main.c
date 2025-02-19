@@ -39,18 +39,12 @@ void UpdateDrawFrame(void) {
 		_lastAsteroidCreationTime = time;
 	}
 
-	if(IsKeyPressed(KEY_GRAVE)) {
-		ToggleShowDebugMenu();
-	}
-
 	BeginDrawing();
 		ClearBackground(NEARBLACK);
+		DebugController(_asteroids);
 		for(int i = 0; i < MAX_ASTEROIDS; i++) {
 			DrawAsteroid(_asteroids[i]);
 		}
-		ShowDebugMenu();
-		ShowAngleCone();
-		ShowAsteroidCount(_asteroids);
 	EndDrawing();
 }
 

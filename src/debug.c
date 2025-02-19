@@ -11,8 +11,13 @@ bool _showAsteroidCount = false;
 Vector2 line0[2];
 Vector2 line1[2];
 
-void ToggleShowDebugMenu(void) {
-    _showDebugMenu = !_showDebugMenu;
+void DebugController(Asteroid *asteroids) {
+    if(IsKeyPressed(KEY_GRAVE)) {
+		_showDebugMenu = !_showDebugMenu;
+	}
+    ShowDebugMenu();
+	ShowAngleCone();
+	ShowAsteroidCount(asteroids);
 }
 
 void ShowDebugMenu(void) {

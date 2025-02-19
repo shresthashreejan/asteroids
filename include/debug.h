@@ -1,7 +1,7 @@
 #ifndef DEBUG_H_
 #define DEBUG_H_
 
-void ToggleShowDebugMenu();
+void DebugController(Asteroid *asteroids);
 void ShowDebugMenu();
 void DrawAngleCone(Vector2 position, Vector2 velocity);
 void ShowAngleCone();
