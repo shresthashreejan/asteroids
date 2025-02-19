@@ -19,7 +19,8 @@ typedef struct Asteroid {
     float creationTime;
 } Asteroid;
 
-void AddAsteroid(Vector2 position, AsteroidSize size);
+void FrameUpdateAsteroid(Asteroid *asteroid);
+void AddAsteroid(Vector2 position, AsteroidSize size, Asteroid *asteroid);
 Asteroid CreateAsteroid(Vector2 position, Vector2 velocity, AsteroidSize size);
 void UpdateAsteroid(Asteroid *asteroid, float frametime, float time);
 void DrawAsteroid(Asteroid asteroid);
