@@ -18,9 +18,11 @@ int main() {
 	srand(time(0));
 	SetTargetFPS(240);
 	InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "ASTEROIDS");
+	LoadSpaceshipTexture();
 	while(!WindowShouldClose()) {
 		UpdateDrawFrame();
 	}
+	UnloadResources();
 	CloseWindow();
 	return 0;
 }
