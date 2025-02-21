@@ -25,5 +25,6 @@ Asteroid CreateAsteroid(Vector2 position, Vector2 velocity, AsteroidSize size);
 void DrawAsteroid(Asteroid asteroid);
 void UpdateAsteroid(Asteroid *asteroid, float frametime, float time);
 Vector2 GetNextAsteroidPosition();
+void AsteroidController(Asteroid *asteroid);
 
 #endif

@@ -95,3 +95,10 @@ Vector2 GetNextAsteroidPosition(void) {
 	}
 	return result;
 }
+
+void AsteroidController(Asteroid *asteroid) {
+	FrameUpdateAsteroid(asteroid);
+	for(int i = 0; i < MAX_ASTEROIDS; i++) {
+		DrawAsteroid(asteroid[i]);
+	}
+}
