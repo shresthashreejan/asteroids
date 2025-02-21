@@ -31,6 +31,7 @@ int main() {
 void UpdateDrawFrame(void) {
 	BeginDrawing();
 		ClearBackground(NEARBLACK);
+		DrawFPS(SCREEN_WIDTH - 100, 10);
 		AsteroidController(_asteroids);
 		PlayerController();
 		ProjectileController();
