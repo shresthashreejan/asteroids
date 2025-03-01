@@ -10,6 +10,7 @@
 #include "debug.h"
 #include "player.h"
 #include "projectile.h"
+#include "collision.h"
 
 static Asteroid _asteroids[MAX_ASTEROIDS] = {0};
 
@@ -29,6 +30,7 @@ int main() {
 }
 
 void UpdateDrawFrame(void) {
+	Rectangle playerRectangle = { playerPosition.x - spaceshipTexture.width / 2, playerPosition.y - spaceshipTexture.height / 2, spaceshipTexture.width, spaceshipTexture.height };
 	BeginDrawing();
 		ClearBackground(NEARBLACK);
 		DrawFPS(SCREEN_WIDTH - 100, 10);
@@ -36,5 +38,6 @@ void UpdateDrawFrame(void) {
 		PlayerController();
 		ProjectileController();
 		DebugController(_asteroids);
+		CollisionController(playerRectangle, _asteroids);
 	EndDrawing();
 }

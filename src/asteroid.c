@@ -61,7 +61,8 @@ void DrawAsteroid(Asteroid asteroid) {
     if(!asteroid.active) {
         return;
     }
-    DrawPolyLines(asteroid.position, 3, 16 * (int)(asteroid.size), asteroid.rotation, WHITE);
+	Rectangle rectangle = { asteroid.position.x, asteroid.position.y, 16 * (asteroid.size), 16 * (asteroid.size) };
+	DrawRectanglePro(rectangle, (Vector2){rectangle.width / 2, rectangle.height / 2}, asteroid.rotation, WHITE);
 }
 
 void UpdateAsteroid(Asteroid *asteroid, float frametime, float time) {
