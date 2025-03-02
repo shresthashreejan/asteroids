@@ -2,6 +2,6 @@
 #define COLLISION_H_
 
 void CheckPlayerCollision(Rectangle playerRectangle, Rectangle asteroidRectangle);
-void CollisionController(Rectangle playerRectangle, Asteroid *asteroids);
+void CollisionController(Asteroid *asteroids);
 
 #endif

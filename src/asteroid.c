@@ -5,8 +5,8 @@
 #include "constants.h"
 #include "debug.h"
 
-static AsteroidSize _sizes[] = {ASTEROID_SMALL, ASTEROID_MEDIUM, ASTEROID_LARGE};
-static float _lastAsteroidCreationTime = -1.0f;
+static AsteroidSize sizes[] = {ASTEROID_SMALL, ASTEROID_MEDIUM, ASTEROID_LARGE};
+static float lastAsteroidCreationTime = -1.0f;
 
 void FrameUpdateAsteroid(Asteroid *asteroid) {
     float frametime = GetFrameTime();
@@ -15,9 +15,9 @@ void FrameUpdateAsteroid(Asteroid *asteroid) {
 		UpdateAsteroid(asteroid + i, frametime, time);
 	}
 
-	if(time > _lastAsteroidCreationTime + ASTEROID_DELAY) {
-		AddAsteroid(GetNextAsteroidPosition(), _sizes[GetRandomValue(0, 2)], asteroid);
-		_lastAsteroidCreationTime = time;
+	if(time > lastAsteroidCreationTime + ASTEROID_DELAY) {
+		AddAsteroid(GetNextAsteroidPosition(), sizes[GetRandomValue(0, 2)], asteroid);
+		lastAsteroidCreationTime = time;
 	}
 }
 
