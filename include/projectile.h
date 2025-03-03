@@ -8,8 +8,8 @@ typedef struct Projectile {
 } Projectile;
 
 void FireProjectile();
-void UpdateProjectile();
+void UpdateProjectile(Asteroid *asteroids);
 void DrawProjectile(Projectile projectile);
-void ProjectileController();
+void ProjectileController(Asteroid *asteroids);
 
 #endif

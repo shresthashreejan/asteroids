@@ -14,6 +14,16 @@ void CheckPlayerCollision(Rectangle playerRectangle, Rectangle asteroidRectangle
     }
 }
 
+void CheckAsteroidCollision(Rectangle projectileRectangle, Asteroid *asteroids) {
+    for(int i = 0; i < MAX_ASTEROIDS; i++) {
+		Rectangle asteroidRect = { asteroids[i].position.x, asteroids[i].position.y, 16 * (asteroids[i].size), 16 * (asteroids[i].size) };
+        bool collisionActive = CheckCollisionRecs(projectileRectangle, asteroidRect);
+        if(collisionActive) {
+            DestroyAsteroid(&asteroids[i]);
+        }
+    }
+}
+
 void CollisionController(Asteroid *asteroids) {
     /*
     Current implementation: Constructing player bounding rectangle each frame based on player.h's external variables

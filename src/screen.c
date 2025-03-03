@@ -20,7 +20,7 @@ void ScreenController(Asteroid *asteroids) {
             DrawFPS(SCREEN_WIDTH - 100, 10);
             AsteroidController(asteroids);
             PlayerController();
-            ProjectileController();
+            ProjectileController(asteroids);
             DebugController(asteroids);
             CollisionController(asteroids);	
         } else {

@@ -26,5 +26,6 @@ void DrawAsteroid(Asteroid asteroid);
 void UpdateAsteroid(Asteroid *asteroid, float frametime, float time);
 Vector2 GetNextAsteroidPosition();
 void AsteroidController(Asteroid *asteroid);
+void DestroyAsteroid(Asteroid *asteroid);
 
 #endif
