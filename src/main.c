@@ -2,13 +2,11 @@
 #include <time.h>
 
 #include "raylib.h"
-#include "raymath.h"
-#include "raygui.h"
 
 #include "asteroid.h"
 #include "constants.h"
-#include "player.h"
 #include "screen.h"
+#include "texture.h"
 
 static Asteroid asteroids[MAX_ASTEROIDS] = {0};
 
@@ -17,12 +15,12 @@ void UpdateDrawFrame(void);
 int main() {
 	srand(time(0));
 	SetTargetFPS(240);
-	InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "ASTEROIDS");
-	LoadSpaceshipTexture();
+	InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, GAME_TITLE);
+	LoadAllTextures();
 	while(!WindowShouldClose()) {
 		UpdateDrawFrame();
 	}
-	UnloadResources();
+	UnloadTextures();
 	CloseWindow();
 	return 0;
 }

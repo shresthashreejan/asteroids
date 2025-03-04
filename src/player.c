@@ -1,38 +1,29 @@
 #include "raylib.h"
 
 #include "constants.h"
-
-static int screenBorderPadding = 15;
+#include "texture.h"
 
 Vector2 playerPosition = {(float)SCREEN_WIDTH / 2, (float)SCREEN_HEIGHT / 2};
-Texture2D spaceshipTexture;
-
-void LoadSpaceshipTexture(void) {
-	spaceshipTexture = LoadTexture("./assets/images/spaceship.png");
-}
-
-void UnloadResources(void) {
-	UnloadTexture(spaceshipTexture);
-}
 
 void PlayerController(void) {
+	Texture2D spaceshipTexture = GetSpaceshipTexture();
     if(IsKeyDown(KEY_RIGHT)) {
-		if(playerPosition.x <= (SCREEN_WIDTH - screenBorderPadding)) {
+		if(playerPosition.x <= (SCREEN_WIDTH - SCREEN_BORDER_PADDING)) {
 			playerPosition.x += 2.0f;
 		}
 	}
 	if(IsKeyDown(KEY_LEFT)) {
-		if(playerPosition.x >= 0 + screenBorderPadding) {
+		if(playerPosition.x >= 0 + SCREEN_BORDER_PADDING) {
 			playerPosition.x -= 2.0f;
 		}
 	}
 	if(IsKeyDown(KEY_DOWN)) {
-		if(playerPosition.y <= SCREEN_HEIGHT - screenBorderPadding) {
+		if(playerPosition.y <= SCREEN_HEIGHT - SCREEN_BORDER_PADDING) {
 			playerPosition.y += 2.0f;
 		}
 	}
 	if(IsKeyDown(KEY_UP)) {
-		if(playerPosition.y >= 0 + screenBorderPadding) {
+		if(playerPosition.y >= 0 + SCREEN_BORDER_PADDING) {
 			playerPosition.y -= 2.0f;
 		}
 	}

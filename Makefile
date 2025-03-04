@@ -3,7 +3,7 @@ CFLAGS = -I./include -I./other_includes -Wall -Wextra -pedantic -std=c99
 LDFLAGS = -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
 
 BUILD_DIR = build
-OBJ = ${BUILD_DIR}/main.o ${BUILD_DIR}/asteroid.o ${BUILD_DIR}/raygui.o ${BUILD_DIR}/debug.o ${BUILD_DIR}/player.o ${BUILD_DIR}/projectile.o ${BUILD_DIR}/collision.o ${BUILD_DIR}/screen.o
+OBJ = ${BUILD_DIR}/main.o ${BUILD_DIR}/asteroid.o ${BUILD_DIR}/raygui.o ${BUILD_DIR}/debug.o ${BUILD_DIR}/player.o ${BUILD_DIR}/projectile.o ${BUILD_DIR}/collision.o ${BUILD_DIR}/screen.o ${BUILD_DIR}/texture.o
 OUT = ${BUILD_DIR}/asteroids.out
 
 $(OUT): $(OBJ)
@@ -32,6 +32,9 @@ ${BUILD_DIR}/collision.o: src/collision.c
 
 ${BUILD_DIR}/screen.o: src/screen.c
 	$(CC) $(CFLAGS) -c src/screen.c -o ${BUILD_DIR}/screen.o
+
+${BUILD_DIR}/texture.o: src/texture.c
+	$(CC) $(CFLAGS) -c src/texture.c -o ${BUILD_DIR}/texture.o
 
 clean:
 	rm -f $(OBJ) $(OUT)
