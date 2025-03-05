@@ -31,9 +31,10 @@ void CollisionController(Asteroid *asteroids) {
     TODO: Implement a better solution
     */
     Texture2D spaceshipTexture = GetSpaceshipTexture();
-    Rectangle playerRectangle = { playerPosition.x - spaceshipTexture.width / 2, playerPosition.y - spaceshipTexture.height / 2, spaceshipTexture.width, spaceshipTexture.height };
+    Rectangle playerRectangle = { playerPosition.x - (spaceshipTexture.width - 8) / 2, playerPosition.y - (spaceshipTexture.height - 8) / 2, spaceshipTexture.width - 8, spaceshipTexture.height - 8 };
     for(int i = 0; i < MAX_ASTEROIDS; i++) {
-		Rectangle asteroidRect = { asteroids[i].position.x, asteroids[i].position.y, 16 * (asteroids[i].size), 16 * (asteroids[i].size) };
+		Rectangle asteroidRect = { asteroids[i].position.x - (8 * asteroids[i].size), asteroids[i].position.y - (8 * asteroids[i].size), 16 * (asteroids[i].size), 16 * (asteroids[i].size) };
+        // DrawRectangleLines(asteroidRect.x, asteroidRect.y, asteroidRect.width, asteroidRect.height, BLUE);
         CheckPlayerCollision(playerRectangle, asteroidRect);
 	}
 }

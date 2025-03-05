@@ -27,7 +27,7 @@ void PlayerController(void) {
 			playerPosition.y -= 2.0f;
 		}
 	}
-	Rectangle rectangle = { playerPosition.x - spaceshipTexture.width / 2, playerPosition.y - spaceshipTexture.height / 2, spaceshipTexture.width, spaceshipTexture.height };
+	Rectangle rectangle = { playerPosition.x - (spaceshipTexture.width - 8) / 2, playerPosition.y - (spaceshipTexture.height - 8) / 2, spaceshipTexture.width - 8, spaceshipTexture.height - 8 };
 	DrawRectangleLines(rectangle.x, rectangle.y, rectangle.width, rectangle.height, BLUE);	
 	DrawTexture(spaceshipTexture, playerPosition.x - spaceshipTexture.width / 2, playerPosition.y - spaceshipTexture.height / 2, WHITE);
 }

@@ -51,8 +51,10 @@ Asteroid CreateAsteroid(Vector2 position, Vector2 velocity, AsteroidSize size) {
         .position = position,
         .velocity = velocity,
         .size = size,
-        .rotation = GetRandomValue(0, 360),
-        .rotationSpeed = GetRandomValue(ASTEROID_ROT_SPEED_MIN, ASTEROID_ROT_SPEED_MAX),
+		// .rotation = GetRandomValue(0, 360),
+        // .rotationSpeed = GetRandomValue(ASTEROID_ROT_SPEED_MIN, ASTEROID_ROT_SPEED_MAX),
+        .rotation = 0,
+        .rotationSpeed = 0,
         .creationTime = GetTime()
     };
 }
