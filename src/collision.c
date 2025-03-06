@@ -20,9 +20,7 @@ bool CheckAsteroidCollision(Rectangle projectileRectangle, Rectangle asteroidRec
 }
 
 void CollisionController(Asteroid *asteroids, Rectangle projectileRectangle) {
-    Vector2 playerPosition = GetCurrentPlayerPosition();
-    Texture2D spaceshipTexture = GetSpaceshipTexture();
-    Rectangle playerRectangle = { playerPosition.x - (spaceshipTexture.width - 8) / 2, playerPosition.y - (spaceshipTexture.height - 8) / 2, spaceshipTexture.width - 8, spaceshipTexture.height - 8 };
+    Rectangle playerRectangle = GetCurrentPlayerBoundingBox();
     for(int i = 0; i < MAX_ASTEROIDS; i++) {
 		Rectangle asteroidRect = { asteroids[i].position.x - (8 * asteroids[i].size), asteroids[i].position.y - (8 * asteroids[i].size), 16 * (asteroids[i].size), 16 * (asteroids[i].size) };
         CheckPlayerCollision(playerRectangle, asteroidRect);

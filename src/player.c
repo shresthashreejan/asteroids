@@ -5,6 +5,8 @@
 
 Vector2 playerPosition = {(float)SCREEN_WIDTH / 2, (float)SCREEN_HEIGHT / 2};
 
+Rectangle GetCurrentPlayerBoundingBox(void);
+
 void PlayerController(void) {
 	Texture2D spaceshipTexture = GetSpaceshipTexture();
     if(IsKeyDown(KEY_RIGHT)) {
@@ -27,11 +29,21 @@ void PlayerController(void) {
 			playerPosition.y -= 2.0f;
 		}
 	}
-	Rectangle rectangle = { playerPosition.x - (spaceshipTexture.width - 8) / 2, playerPosition.y - (spaceshipTexture.height - 8) / 2, spaceshipTexture.width - 8, spaceshipTexture.height - 8 };
+	Rectangle rectangle = GetCurrentPlayerBoundingBox();
 	DrawRectangleLines(rectangle.x, rectangle.y, rectangle.width, rectangle.height, BLUE);	
 	DrawTexture(spaceshipTexture, playerPosition.x - spaceshipTexture.width / 2, playerPosition.y - spaceshipTexture.height / 2, WHITE);
 }
 
 Vector2 GetCurrentPlayerPosition(void) {
 	return playerPosition;
+}
+
+void ResetPlayer(void) {
+	playerPosition = (Vector2){(float)SCREEN_WIDTH / 2, (float)SCREEN_HEIGHT / 2};
+}
+
+Rectangle GetCurrentPlayerBoundingBox(void) {
+	Texture2D spaceshipTexture = GetSpaceshipTexture();
+	Rectangle rectangle = { playerPosition.x - (spaceshipTexture.width - 8) / 2, playerPosition.y - (spaceshipTexture.height - 8) / 2, spaceshipTexture.width - 8, spaceshipTexture.height - 8 };
+	return rectangle;
 }

@@ -62,7 +62,7 @@ void DrawAsteroid(Asteroid asteroid) {
         return;
     }
 	Rectangle rectangle = { asteroid.position.x, asteroid.position.y, 16 * (asteroid.size), 16 * (asteroid.size) };
-	DrawRectanglePro(rectangle, (Vector2){rectangle.width / 2, rectangle.height / 2}, asteroid.rotation, WHITE);
+	DrawRectanglePro(rectangle, (Vector2){rectangle.width / 2, rectangle.height / 2}, asteroid.rotation, BLUE);
 }
 
 void UpdateAsteroid(Asteroid *asteroid, float frametime, float time) {

@@ -10,11 +10,13 @@
 bool paused = false;
 bool gameOver = false;
 
+void Reset(Asteroid *asteroids);
+
 void ScreenController(Asteroid *asteroids) {
-    if(IsKeyPressed(KEY_P)) {
-        paused = !paused;
-    }
     if(!gameOver) {
+        if(IsKeyPressed(KEY_P)) {
+            paused = !paused;
+        }
         if(!paused) {
             ClearBackground(NEARBLACK);
             DrawFPS(SCREEN_WIDTH - 100, 10);
@@ -23,9 +25,25 @@ void ScreenController(Asteroid *asteroids) {
             ProjectileController(asteroids);
             DebugController(asteroids);
         } else {
-            DrawText("PAUSED", (SCREEN_WIDTH - MeasureText("PAUSED", 40)) / 2, (SCREEN_HEIGHT - 40) / 2, 40, WHITE);
+            DrawRectangle(0, (SCREEN_HEIGHT - 200) / 2, SCREEN_WIDTH, 200, WHITE);
+            DrawText("PAUSED", (SCREEN_WIDTH - MeasureText("PAUSED", 40)) / 2, (SCREEN_HEIGHT - 40) / 2, 40, NEARBLACK);
         }
-    } else {
-        DrawText("GAME OVER", (SCREEN_WIDTH - MeasureText("GAME OVER", 40)) / 2, (SCREEN_HEIGHT - 40) / 2, 40, WHITE);
     }
+    if(gameOver){
+        DrawRectangle(0, (SCREEN_HEIGHT - 200) / 2, SCREEN_WIDTH, 200, WHITE);
+        DrawText("GAME OVER", (SCREEN_WIDTH - MeasureText("GAME OVER", 40)) / 2, (SCREEN_HEIGHT - 80) / 2, 40, NEARBLACK);
+        DrawText("PRESS R TO RESTART", (SCREEN_WIDTH - MeasureText("PRESS R TO RESTART", 40)) / 2, (SCREEN_HEIGHT) / 2, 40, NEARBLACK);
+        if(IsKeyPressed(KEY_R)) {
+            Reset(asteroids);
+        }
+    }
+}
+
+void Reset(Asteroid *asteroids) {
+    ClearBackground(NEARBLACK);
+    for(int i = 0; i < MAX_ASTEROIDS; i++) {
+        asteroids[i].active = false;
+    }
+    ResetPlayer();
+    gameOver = false;
 }
