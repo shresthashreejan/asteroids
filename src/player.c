@@ -31,3 +31,7 @@ void PlayerController(void) {
 	DrawRectangleLines(rectangle.x, rectangle.y, rectangle.width, rectangle.height, BLUE);	
 	DrawTexture(spaceshipTexture, playerPosition.x - spaceshipTexture.width / 2, playerPosition.y - spaceshipTexture.height / 2, WHITE);
 }
+
+Vector2 GetCurrentPlayerPosition(void) {
+	return playerPosition;
+}

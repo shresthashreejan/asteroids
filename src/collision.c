@@ -15,26 +15,21 @@ void CheckPlayerCollision(Rectangle playerRectangle, Rectangle asteroidRectangle
     }
 }
 
-void CheckAsteroidCollision(Rectangle projectileRectangle, Asteroid *asteroids) {
-    for(int i = 0; i < MAX_ASTEROIDS; i++) {
-		Rectangle asteroidRect = { asteroids[i].position.x, asteroids[i].position.y, 16 * (asteroids[i].size), 16 * (asteroids[i].size) };
-        bool collisionActive = CheckCollisionRecs(projectileRectangle, asteroidRect);
-        if(collisionActive) {
-            DestroyAsteroid(&asteroids[i]);
-        }
-    }
+bool CheckAsteroidCollision(Rectangle projectileRectangle, Rectangle asteroidRectangle) {
+    return CheckCollisionRecs(projectileRectangle, asteroidRectangle);
 }
 
-void CollisionController(Asteroid *asteroids) {
-    /*
-    Current implementation: Constructing player bounding rectangle each frame based on player.h's external variables
-    TODO: Implement a better solution
-    */
+void CollisionController(Asteroid *asteroids, Rectangle projectileRectangle) {
+    Vector2 playerPosition = GetCurrentPlayerPosition();
     Texture2D spaceshipTexture = GetSpaceshipTexture();
     Rectangle playerRectangle = { playerPosition.x - (spaceshipTexture.width - 8) / 2, playerPosition.y - (spaceshipTexture.height - 8) / 2, spaceshipTexture.width - 8, spaceshipTexture.height - 8 };
     for(int i = 0; i < MAX_ASTEROIDS; i++) {
 		Rectangle asteroidRect = { asteroids[i].position.x - (8 * asteroids[i].size), asteroids[i].position.y - (8 * asteroids[i].size), 16 * (asteroids[i].size), 16 * (asteroids[i].size) };
-        // DrawRectangleLines(asteroidRect.x, asteroidRect.y, asteroidRect.width, asteroidRect.height, BLUE);
         CheckPlayerCollision(playerRectangle, asteroidRect);
+        if (projectileRectangle.width > 0 && projectileRectangle.height > 0) {
+            if(CheckAsteroidCollision(projectileRectangle, asteroidRect)) {
+                DestroyAsteroid(&asteroids[i]);
+            }
+        }
 	}
 }

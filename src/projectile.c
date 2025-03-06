@@ -21,6 +21,7 @@ void DrawProjectile(Projectile projectile) {
 
 void FireProjectile(void) {
     Projectile projectile;
+    Vector2 playerPosition = GetCurrentPlayerPosition();
     projectile.position = playerPosition;
     projectile.velocity = (Vector2){0, -3};
     projectile.active = true;
@@ -40,7 +41,7 @@ void UpdateProjectile(Asteroid *asteroids) {
             projectiles[i].position.y += projectiles[i].velocity.y;
             DrawProjectile(projectiles[i]);
             Rectangle projectileRectangle = { projectiles[i].position.x - 2, projectiles[i].position.y - 10, 4, 20 };
-            CheckAsteroidCollision(projectileRectangle, asteroids);
+            CollisionController(asteroids, projectileRectangle);
         }
         
         if(projectiles[i].position.x < 0 || projectiles[i].position.x >= SCREEN_WIDTH || projectiles[i].position.y < 0 || projectiles[i].position.y >= SCREEN_HEIGHT) {

@@ -22,7 +22,6 @@ void ScreenController(Asteroid *asteroids) {
             PlayerController();
             ProjectileController(asteroids);
             DebugController(asteroids);
-            CollisionController(asteroids);
         } else {
             DrawText("PAUSED", (SCREEN_WIDTH - MeasureText("PAUSED", 40)) / 2, (SCREEN_HEIGHT - 40) / 2, 40, WHITE);
         }
