@@ -28,8 +28,7 @@ void ScreenController(Asteroid *asteroids) {
             DrawRectangle(0, (SCREEN_HEIGHT - 200) / 2, SCREEN_WIDTH, 200, WHITE);
             DrawText("PAUSED", (SCREEN_WIDTH - MeasureText("PAUSED", 40)) / 2, (SCREEN_HEIGHT - 40) / 2, 40, NEARBLACK);
         }
-    }
-    if(gameOver){
+    } else {
         DrawRectangle(0, (SCREEN_HEIGHT - 200) / 2, SCREEN_WIDTH, 200, WHITE);
         DrawText("GAME OVER", (SCREEN_WIDTH - MeasureText("GAME OVER", 40)) / 2, (SCREEN_HEIGHT - 80) / 2, 40, NEARBLACK);
         DrawText("PRESS R TO RESTART", (SCREEN_WIDTH - MeasureText("PRESS R TO RESTART", 40)) / 2, (SCREEN_HEIGHT) / 2, 40, NEARBLACK);
@@ -40,10 +39,10 @@ void ScreenController(Asteroid *asteroids) {
 }
 
 void Reset(Asteroid *asteroids) {
-    ClearBackground(NEARBLACK);
     for(int i = 0; i < MAX_ASTEROIDS; i++) {
         asteroids[i].active = false;
     }
+    ClearBackground(NEARBLACK);
     ResetPlayer();
     gameOver = false;
 }
