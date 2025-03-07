@@ -17,6 +17,7 @@ int main() {
 	SetTargetFPS(240);
 	InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, GAME_TITLE);
 	LoadAllTextures();
+	SetExitKey(KEY_NULL); // Prevents esc key from closing the game window
 	while(!WindowShouldClose()) {
 		UpdateDrawFrame();
 	}

@@ -15,7 +15,7 @@ void Reset(Asteroid *asteroids);
 
 void ScreenController(Asteroid *asteroids) {
     if(!gameOver) {
-        if(IsKeyPressed(KEY_P)) {
+        if(IsKeyPressed(KEY_ESCAPE)) {
             paused = !paused;
         }
         if(!paused) {
