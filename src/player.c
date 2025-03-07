@@ -28,9 +28,7 @@ void PlayerController(void) {
 		if(playerPosition.y >= 0 + SCREEN_BORDER_PADDING) {
 			playerPosition.y -= 2.0f;
 		}
-	}
-	Rectangle rectangle = GetCurrentPlayerBoundingBox();
-	DrawRectangleLines(rectangle.x, rectangle.y, rectangle.width, rectangle.height, BLUE);	
+	}	
 	DrawTexture(spaceshipTexture, playerPosition.x - spaceshipTexture.width / 2, playerPosition.y - spaceshipTexture.height / 2, WHITE);
 }
 

@@ -4,10 +4,12 @@
 
 #include "asteroid.h"
 #include "constants.h"
+#include "player.h"
 
 bool _showDebugMenu = false;
 bool _showAngleCone = false;
 bool _showAsteroidCount = false;
+bool _showPlayerBoundingBox = false;
 Vector2 line0[2];
 Vector2 line1[2];
 
@@ -20,6 +22,10 @@ void ShowDebugMenu(void) {
         r.x += 140 + 10;
         if (GuiButton(r, "Toggle Angle Cone")) {
             _showAngleCone = !_showAngleCone;
+        }
+        r.x += 140 + 10;
+        if (GuiButton(r, "Toggle Player Box")) {
+            _showPlayerBoundingBox = !_showPlayerBoundingBox;
         }
     }
 }
@@ -48,8 +54,14 @@ void ShowAsteroidCount(Asteroid *asteroids) {
                 count++;
             }
         }
-        DrawRectangle(10, 10, 100, 52, Fade(NEARBLACK, 0.6f));
-        DrawText(TextFormat("ASTEROIDS: %d", count), 20, 20, 32, WHITE);
+        DrawText(TextFormat("ASTEROIDS: %d", count), 20, 60, 32, WHITE);
+    }
+}
+
+void ShowPlayerBoundingBox(void) {
+    if(_showPlayerBoundingBox) {
+        Rectangle rectangle = GetCurrentPlayerBoundingBox();
+	    DrawRectangleLines(rectangle.x, rectangle.y, rectangle.width, rectangle.height, BLUE);
     }
 }
 
@@ -60,4 +72,5 @@ void DebugController(Asteroid *asteroids) {
     ShowDebugMenu();
 	ShowAngleCone();
 	ShowAsteroidCount(asteroids);
+    ShowPlayerBoundingBox();
 }
