@@ -112,6 +112,9 @@ Vector2 GetNextAsteroidPosition(void) {
 
 void DestroyAsteroid(Asteroid *asteroid) {
 	asteroid->active = false;
+	if(asteroid->size == 1) {
+		UpdateScore();
+	}
 	UpdateScore();
 }
 
