@@ -4,5 +4,6 @@
 void UpdateScore();
 void ResetScore();
 void ScoreController();
+int GetCurrentScore();
 
 #endif

@@ -14,3 +14,7 @@ void ResetScore(void) {
 void ScoreController(void) {
     DrawText(TextFormat("SCORE: %d", score), 20, 20, 32, WHITE);
 }
+
+int GetCurrentScore(void) {
+    return score;
+}

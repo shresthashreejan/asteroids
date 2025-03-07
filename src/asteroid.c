@@ -8,6 +8,18 @@
 
 static AsteroidSize sizes[] = {ASTEROID_SMALL, ASTEROID_MEDIUM, ASTEROID_LARGE};
 static float lastAsteroidCreationTime = -1.0f;
+float asteroidDelay = 0.75f;
+
+void UpdateAsteroidDelay(void) {
+	int score = GetCurrentScore();
+	if(score > 25) {
+		asteroidDelay = 0.5f;
+	} else if(score > 50) {
+		asteroidDelay = 0.25f;
+	} else if(score > 75) {
+		asteroidDelay = 0.125f;
+	}
+}
 
 void FrameUpdateAsteroid(Asteroid *asteroid) {
     float frametime = GetFrameTime();
@@ -16,7 +28,7 @@ void FrameUpdateAsteroid(Asteroid *asteroid) {
 		UpdateAsteroid(asteroid + i, frametime, time);
 	}
 
-	if(time > lastAsteroidCreationTime + ASTEROID_DELAY) {
+	if(time > lastAsteroidCreationTime + asteroidDelay) {
 		AddAsteroid(GetNextAsteroidPosition(), sizes[GetRandomValue(0, 2)], asteroid);
 		lastAsteroidCreationTime = time;
 	}
@@ -104,6 +116,7 @@ void DestroyAsteroid(Asteroid *asteroid) {
 }
 
 void AsteroidController(Asteroid *asteroid) {
+	UpdateAsteroidDelay();
 	FrameUpdateAsteroid(asteroid);
 	for(int i = 0; i < MAX_ASTEROIDS; i++) {
 		DrawAsteroid(asteroid[i]);
