@@ -22,11 +22,13 @@ bool CheckAsteroidCollision(Rectangle projectileRectangle, Rectangle asteroidRec
 void CollisionController(Asteroid *asteroids, Rectangle projectileRectangle) {
     Rectangle playerRectangle = GetCurrentPlayerBoundingBox();
     for(int i = 0; i < MAX_ASTEROIDS; i++) {
-		Rectangle asteroidRect = { asteroids[i].position.x - (8 * asteroids[i].size), asteroids[i].position.y - (8 * asteroids[i].size), 16 * (asteroids[i].size), 16 * (asteroids[i].size) };
-        CheckPlayerCollision(playerRectangle, asteroidRect);
-        if (projectileRectangle.width > 0 && projectileRectangle.height > 0) {
-            if(CheckAsteroidCollision(projectileRectangle, asteroidRect)) {
-                DestroyAsteroid(&asteroids[i]);
+        if(asteroids[i].active) {
+            Rectangle asteroidRect = { asteroids[i].position.x - (8 * asteroids[i].size), asteroids[i].position.y - (8 * asteroids[i].size), 16 * (asteroids[i].size), 16 * (asteroids[i].size) };
+            CheckPlayerCollision(playerRectangle, asteroidRect);
+            if (projectileRectangle.width > 0 && projectileRectangle.height > 0) {
+                if(CheckAsteroidCollision(projectileRectangle, asteroidRect)) {
+                    DestroyAsteroid(&asteroids[i]);
+                }
             }
         }
 	}

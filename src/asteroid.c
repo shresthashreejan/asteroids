@@ -4,6 +4,7 @@
 #include "asteroid.h"
 #include "constants.h"
 #include "debug.h"
+#include "score.h"
 
 static AsteroidSize sizes[] = {ASTEROID_SMALL, ASTEROID_MEDIUM, ASTEROID_LARGE};
 static float lastAsteroidCreationTime = -1.0f;
@@ -99,6 +100,7 @@ Vector2 GetNextAsteroidPosition(void) {
 
 void DestroyAsteroid(Asteroid *asteroid) {
 	asteroid->active = false;
+	UpdateScore();
 }
 
 void AsteroidController(Asteroid *asteroid) {

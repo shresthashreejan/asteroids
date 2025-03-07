@@ -11,15 +11,6 @@ bool _showAsteroidCount = false;
 Vector2 line0[2];
 Vector2 line1[2];
 
-void DebugController(Asteroid *asteroids) {
-    if(IsKeyPressed(KEY_GRAVE)) {
-		_showDebugMenu = !_showDebugMenu;
-	}
-    ShowDebugMenu();
-	ShowAngleCone();
-	ShowAsteroidCount(asteroids);
-}
-
 void ShowDebugMenu(void) {
     if(_showDebugMenu) {
         Rectangle r = {10, SCREEN_HEIGHT - 40, 140, 20};
@@ -60,4 +51,13 @@ void ShowAsteroidCount(Asteroid *asteroids) {
         DrawRectangle(10, 10, 100, 52, Fade(NEARBLACK, 0.6f));
         DrawText(TextFormat("ASTEROIDS: %d", count), 20, 20, 32, WHITE);
     }
+}
+
+void DebugController(Asteroid *asteroids) {
+    if(IsKeyPressed(KEY_GRAVE)) {
+		_showDebugMenu = !_showDebugMenu;
+	}
+    ShowDebugMenu();
+	ShowAngleCone();
+	ShowAsteroidCount(asteroids);
 }

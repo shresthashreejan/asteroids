@@ -4,6 +4,7 @@
 #include "constants.h"
 #include "player.h"
 #include "asteroid.h"
+#include "collision.h"
 
 typedef struct Projectile {
     Vector2 position;
