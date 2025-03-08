@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -I./include -I./other_includes -Wall -Wextra -pedantic -std=c99
+CFLAGS = -I./include -Wall -Wextra -pedantic -std=c99
 LDFLAGS = -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
 
 BUILD_DIR = build
