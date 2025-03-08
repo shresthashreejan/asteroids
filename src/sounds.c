@@ -38,9 +38,11 @@ void PlayDeathSound(void) {
 }
 
 void PlayFireSound(void) {
+    SetSoundVolume(fireSound, 0.75f);
     PlaySound(fireSound);
 }
 
 void PlayExplosionSound(void) {
+    SetSoundVolume(explosionSound, 0.5f);
     PlaySound(explosionSound);
 }

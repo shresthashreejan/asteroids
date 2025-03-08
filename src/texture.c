@@ -6,12 +6,12 @@ void LoadSpaceshipTexture(void) {
     spaceshipTexture = LoadTexture("./assets/images/spaceship.png");
 }
 
-void UnloadTextures(void) {
-	UnloadTexture(spaceshipTexture);
-}
-
 void LoadAllTextures(void) {
     LoadSpaceshipTexture();
+}
+
+void UnloadTextures(void) {
+	UnloadTexture(spaceshipTexture);
 }
 
 Texture2D GetSpaceshipTexture(void) {
