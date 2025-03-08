@@ -5,6 +5,7 @@
 #include "player.h"
 #include "asteroid.h"
 #include "collision.h"
+#include "sounds.h"
 
 typedef struct Projectile {
     Vector2 position;
@@ -33,6 +34,7 @@ void FireProjectile(void) {
         projectiles[i] = projectile;
         break;
     }
+    PlayFireSound();
 }
 
 void UpdateProjectile(Asteroid *asteroids) {

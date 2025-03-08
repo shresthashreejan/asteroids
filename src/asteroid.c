@@ -5,6 +5,7 @@
 #include "constants.h"
 #include "debug.h"
 #include "score.h"
+#include "sounds.h"
 
 static AsteroidSize sizes[] = {ASTEROID_SMALL, ASTEROID_MEDIUM, ASTEROID_LARGE};
 static float lastAsteroidCreationTime = -1.0f;
@@ -18,6 +19,8 @@ void UpdateAsteroidDelay(void) {
 		asteroidDelay = 0.25f;
 	} else if(score > 75) {
 		asteroidDelay = 0.125f;
+	} else if(score > 100) {
+		asteroidDelay = 0.05f;
 	}
 }
 
@@ -116,6 +119,7 @@ void DestroyAsteroid(Asteroid *asteroid) {
 		UpdateScore();
 	}
 	UpdateScore();
+	PlayExplosionSound();
 }
 
 void AsteroidController(Asteroid *asteroid) {

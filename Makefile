@@ -3,7 +3,7 @@ CFLAGS = -I./include -I./other_includes -Wall -Wextra -pedantic -std=c99
 LDFLAGS = -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
 
 BUILD_DIR = build
-OBJ = ${BUILD_DIR}/main.o ${BUILD_DIR}/asteroid.o ${BUILD_DIR}/raygui.o ${BUILD_DIR}/debug.o ${BUILD_DIR}/player.o ${BUILD_DIR}/projectile.o ${BUILD_DIR}/collision.o ${BUILD_DIR}/screen.o ${BUILD_DIR}/texture.o ${BUILD_DIR}/score.o
+OBJ = ${BUILD_DIR}/main.o ${BUILD_DIR}/asteroid.o ${BUILD_DIR}/raygui.o ${BUILD_DIR}/debug.o ${BUILD_DIR}/player.o ${BUILD_DIR}/projectile.o ${BUILD_DIR}/collision.o ${BUILD_DIR}/screen.o ${BUILD_DIR}/texture.o ${BUILD_DIR}/score.o ${BUILD_DIR}/sounds.o
 OUT = ${BUILD_DIR}/asteroids.out
 
 $(OUT): $(OBJ)
@@ -38,6 +38,9 @@ ${BUILD_DIR}/texture.o: src/texture.c
 
 ${BUILD_DIR}/score.o: src/score.c
 	$(CC) $(CFLAGS) -c src/score.c -o ${BUILD_DIR}/score.o
+
+${BUILD_DIR}/sounds.o: src/sounds.c
+	$(CC) $(CFLAGS) -c src/sounds.c -o ${BUILD_DIR}/sounds.o
 
 clean:
 	rm -f $(OBJ) $(OUT)

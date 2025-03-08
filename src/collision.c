@@ -7,11 +7,13 @@
 #include "player.h"
 #include "screen.h"
 #include "texture.h"
+#include "sounds.h"
 
 void CheckPlayerCollision(Rectangle playerRectangle, Rectangle asteroidRectangle) {
     bool collisionActive = CheckCollisionRecs(playerRectangle, asteroidRectangle);
     if(collisionActive) {
         gameOver = true;
+        PlayDeathSound();
     }
 }
 
