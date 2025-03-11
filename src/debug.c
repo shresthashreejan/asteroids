@@ -54,7 +54,7 @@ void ShowAsteroidCount(Asteroid *asteroids) {
                 count++;
             }
         }
-        DrawText(TextFormat("ASTEROIDS: %d", count), 20, 60, 32, WHITE);
+        DrawText(TextFormat("ASTEROIDS: %d", count), 20, 80, 16, WHITE);
     }
 }
 

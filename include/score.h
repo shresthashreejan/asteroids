@@ -5,5 +5,7 @@ void UpdateScore();
 void ResetScore();
 void ScoreController();
 int GetCurrentScore();
+int LoadHighScore();
+void SaveHighScore(int newScore);
 
 #endif

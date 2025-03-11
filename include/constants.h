@@ -13,5 +13,6 @@
 #define SCREEN_CENTER (Vector2){SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2}
 #define MAX_PROJECTILES 64
 #define SCREEN_BORDER_PADDING 15
+#define SCORE_FILE "assets/score.dat"
 
 #endif

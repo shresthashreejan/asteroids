@@ -54,7 +54,7 @@ void UpdateProjectile(Asteroid *asteroids) {
 }
 
 void ProjectileController(Asteroid *asteroids) {
-    if(IsKeyPressed(KEY_F)) {
+    if(IsKeyPressed(KEY_SPACE)) {
         FireProjectile();
     }
     UpdateProjectile(asteroids);
