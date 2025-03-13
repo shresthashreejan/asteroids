@@ -12,7 +12,7 @@ static Asteroid asteroids[MAX_ASTEROIDS] = {0};
 
 void UpdateDrawFrame(void);
 
-int main() {
+int main(void) {
 	srand(time(0));
 	SetTargetFPS(240);
 	InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, GAME_TITLE);
