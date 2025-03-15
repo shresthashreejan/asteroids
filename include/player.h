@@ -1,9 +1,9 @@
 #ifndef PLAYER_H_
 #define PLAYER_H_
 
-void PlayerController();
-Vector2 GetCurrentPlayerPosition();
-void ResetPlayer();
-Rectangle GetCurrentPlayerBoundingBox();
+void PlayerController(void);
+Vector2 GetCurrentPlayerPosition(void);
+void ResetPlayer(void);
+Rectangle GetCurrentPlayerBoundingBox(void);
 
 #endif

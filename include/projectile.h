@@ -7,7 +7,7 @@ typedef struct Projectile {
     bool active;
 } Projectile;
 
-void FireProjectile();
+void FireProjectile(void);
 void UpdateProjectile(Asteroid *asteroids);
 void DrawProjectile(Projectile projectile);
 void ProjectileController(Asteroid *asteroids);

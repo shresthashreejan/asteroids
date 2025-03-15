@@ -1,12 +1,12 @@
 #ifndef SOUNDS_H_
 #define SOUNDS_H_
 
-void LoadAllSounds();
-void UnloadAllSounds();
-void SoundController();
-void UpdateLoopingSound();
-void PlayDeathSound();
-void PlayFireSound();
-void PlayExplosionSound();
+void LoadAllSounds(void);
+void UnloadAllSounds(void);
+void SoundController(void);
+void UpdateLoopingSound(void);
+void PlayDeathSound(void);
+void PlayFireSound(void);
+void PlayExplosionSound(void);
 
 #endif
